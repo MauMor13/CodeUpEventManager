@@ -2,41 +2,35 @@ package com.mindhub.event_manager.models;
 
 import com.mindhub.event_manager.enums.ReactionType;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.io.Serializable;
-import java.util.UUID;
 
 @Entity
 @Setter
 @Getter
 @NoArgsConstructor
-public class Reaction implements Serializable {
+public class Reaction {
 
-    /* @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Setter(AccessLevel.NONE)
-    private UUID reaction_id;*/
     @EmbeddedId
-    private CustomerEventPK reaction_id;
+    private ReactionId reactionId;
 
     @Enumerated(EnumType.STRING)
     private ReactionType reactionType;
 
     @ManyToOne
-    @JoinColumn(name ="customer_id")
-    private Customer customer;
-
-    @ManyToOne
-    @JoinColumn(name ="event_id")
-    @MapsId("")
+    @JoinColumn(name= "event_id",insertable = false, updatable = false)
     private Event event;
 
-    public Reaction(ReactionType reactionType) {
+    @ManyToOne
+    @JoinColumn(name = "customer_id",insertable = false, updatable = false)
+    private Customer customer;
+
+    public Reaction(Event event, Customer customer, ReactionType reactionType){
         this.reactionType = reactionType;
+        this.event = event;
+        this.customer = customer;
+        reactionId = new ReactionId(event.getEvent_id(),customer.getCustomer_id());
     }
 
 }
