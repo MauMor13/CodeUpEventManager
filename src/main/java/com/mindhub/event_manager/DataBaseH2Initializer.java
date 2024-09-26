@@ -9,6 +9,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 public class DataBaseH2Initializer {
 
@@ -22,12 +24,12 @@ public class DataBaseH2Initializer {
                                       ReactionRepository reactionRepository) {
         return args -> {
 
-            Customer customer1 = new Customer();
-            Event event1 = new Event();
-            Comment comment1 = new Comment();
-            Comment comment2 = new Comment();
-            Location location1 = new Location();
-            EventLocation eventLocation1 = new EventLocation();
+            Customer customer1 = new Customer("Mauricio", "Mores","mauri.f.mores@gmail.com","mauri1313", (byte) 27, CustomerGender.MALE, CustomerRol.USER);
+            Event event1 = new Event("Red Bull Grand Prix of The Americas", (byte) 18, "The Circuit Of The Americas is the first purpose-built Grand Prix facility in the U.S. near Austin, Texas, with a 5.513km track and a capacity for 120,000 fans. Construction of the impressive 1000-acre facility was completed late in 2012, with MotoGP lining up at the track for the first time in 2013.",null);
+            Comment comment1 = new Comment("Great event with a track full of emotions");
+            Comment comment2 = new Comment("The event was very good, with great shows");
+            Location location1 = new Location("Austin, Texas, USA", 40000, null);
+            EventLocation eventLocation1 = new EventLocation(LocalDateTime.of(2025,12,4,10,30), 40000);
             CustomerEventLocation customerEventLocation1 = new CustomerEventLocation();
 
             customer1.addCustomerEvent(customerEventLocation1);
@@ -55,6 +57,8 @@ public class DataBaseH2Initializer {
             customer1.addReaction(reaction1);
             event1.addReaction(reaction1);
             Reaction reaction2 = new Reaction(event1, customer1, ReactionType.DISLIKE);
+            customer1.addReaction(reaction2);
+            event1.addReaction(reaction2);
             reactionRepository.save(reaction1);
             reactionRepository.save(reaction2);
         };
