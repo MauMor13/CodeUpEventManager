@@ -25,6 +25,7 @@ public class Event {
 
     private byte age_req;
 
+    @Column(columnDefinition = "TEXT")
     private String desc;
 
     private String img;
