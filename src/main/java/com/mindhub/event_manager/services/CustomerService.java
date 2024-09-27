@@ -9,4 +9,6 @@ public interface CustomerService {
     ResponseEntity<?> getCustomers();
 
     ResponseEntity<?> getCustomer(UUID id);
+
+    ResponseEntity<?> deleteCustomer(UUID id);
 }

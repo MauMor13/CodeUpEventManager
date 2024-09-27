@@ -41,4 +41,15 @@ public class CustomerServiceImpl implements CustomerService {
         return new ResponseEntity<>(new CustomerDTO(customerDTO.get()), HttpStatus.OK);
     }
 
+    @Override
+    public ResponseEntity<?> deleteCustomer(UUID id) {
+        Optional<Customer> customer = customerRepository.findById(id);
+        if (customer.isEmpty())
+            return new ResponseEntity<>("Were not found customer", HttpStatus.NOT_FOUND);
+
+        customer.get().setActivated(false);
+        customerRepository.save(customer.get());
+        return new ResponseEntity<>("Delete customer", HttpStatus.OK);
+    }
+
 }
