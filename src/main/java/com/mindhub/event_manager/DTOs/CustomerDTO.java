@@ -20,6 +20,8 @@ public class CustomerDTO {
 
     private String email;
 
+    private boolean activated;
+
     private byte age;
 
     private CustomerGender gender;
@@ -28,15 +30,16 @@ public class CustomerDTO {
 
     private List<EventDTO> events;
 
-    private List<CommentDTO> comments ;
+    private List<CommentDTO> comments;
 
-    private List<ReactionDTO> reactions ;
+    private List<ReactionDTO> reactions;
 
     public CustomerDTO(Customer customer) {
         this.id = customer.getCustomer_id();
         this.name = customer.getName();
         this.email = customer.getEmail();
         this.lastname = customer.getLastname();
+        this.activated = customer.isActivated();
         this.age = customer.getAge();
         this.gender = customer.getGender();
         this.rol = customer.getRol();
