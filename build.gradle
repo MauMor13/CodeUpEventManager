@@ -28,6 +28,8 @@ dependencies {
 	//project lombok
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+	// email message
+	implementation 'org.springframework.boot:spring-boot-starter-mail:3.2.1'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
