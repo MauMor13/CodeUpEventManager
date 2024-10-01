@@ -30,6 +30,10 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	// email message
 	implementation 'org.springframework.boot:spring-boot-starter-mail:3.2.1'
+	// JWT Implementation
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+	// JWT Jackson
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
