@@ -6,26 +6,26 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/customer")
-public class CustomerController {
+@RequestMapping("/api/customer/admin")
+public class CustomerAdminController {
 
     private final CustomerService customerService;
 
-    public CustomerController(CustomerService customerService) {
+    public CustomerAdminController(CustomerService customerService) {
         this.customerService = customerService;
     }
 
-    @GetMapping("/admin/get_customers")
+    @GetMapping("/get_customers")
     public ResponseEntity<?> getCustomers(){
         return customerService.getCustomers();
     }
 
-    @GetMapping("/admin/get_customer")
+    @GetMapping("/get_customer")
     public ResponseEntity<?> getCustomer(@RequestParam UUID id){
         return customerService.getCustomer(id);
     }
 
-    @DeleteMapping("/admin/delete_customer")
+    @DeleteMapping("/delete_customer")
     public ResponseEntity<?> deleteCustomer(@RequestParam UUID id){
         return customerService.deleteCustomer(id);
     }
