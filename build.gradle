@@ -19,8 +19,8 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	//implementation 'org.springframework.boot:spring-boot-starter-security'
-	//testImplementation 'org.springframework.security:spring-security-test'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	testImplementation 'org.springframework.security:spring-security-test'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	runtimeOnly 'com.h2database:h2'
 	//SpringDoc OpenAPI Starter WebMVC UI
@@ -30,6 +30,8 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	// email message
 	implementation 'org.springframework.boot:spring-boot-starter-mail:3.2.1'
+	// JWT API
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
 	// JWT Implementation
 	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
 	// JWT Jackson
