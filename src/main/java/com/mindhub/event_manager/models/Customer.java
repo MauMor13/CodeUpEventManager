@@ -38,6 +38,9 @@ public class Customer extends Person {
         this.age = age;
         this.gender = gender;
     }
+    public Customer(String email,String password){
+        super(email, password);
+    }
 
     public void addEvent(Event event){
         event.setCustomer(this);
