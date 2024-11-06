@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/customer/admin")
+@RequestMapping("/api/admin")
 public class CustomerAdminController {
 
     private final CustomerService customerService;
