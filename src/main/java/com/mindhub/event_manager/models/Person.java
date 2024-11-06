@@ -32,7 +32,7 @@ public class Person implements UserDetails {
 
     private String email;
 
-    private boolean activated = true;
+    private boolean activated = false;
 
     private String password;
 
@@ -45,6 +45,10 @@ public class Person implements UserDetails {
         this.email = email;
         this.password = password;
         this.rol = rol;
+    }
+    public  Person(String email, String password){
+        this.email = email;
+        this.password = password;
     }
 
     @Override
